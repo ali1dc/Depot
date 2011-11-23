@@ -1,15 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Depot</title>
+  <title>Online Store</title>
   <%= stylesheet_link_tag :all %>
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
 </head>
-<body>
+<body id="store">
 <div id="page">
-  <%= yield %>
+  <div id="banner">
+    <%= image_tag("logo.png") %>
+    <%= @page_title || "Pragmatic Bookshelf" %>
+  </div>
+  <div id="columns">
+    <div id="side">
+      <a href="/">Home</a><br />
+      <a href="#">Return Policy</a><br />
+      <a href="#">News</a><br />
+      <a href="#">Contact</a><br />
+    </div>
+    <div id="main">
+      <% if flash[:notice] -%>
+        <div id="notice"><%= flash[:notice] %></div>
+      <% end -%>
+
+      <%= yield %>
+      
+    </div>
+
+  </div>
 </div>
+<br /><br /><br /><br />
 <div>
   <%= debug(params) if Rails.env.development? %>
 </div>
