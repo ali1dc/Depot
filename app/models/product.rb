@@ -7,4 +7,5 @@ class Product < ActiveRecord::Base
       :with => %r{\.(gif|jpg|png)$}i,
       :message => 'must be jpj, gif, or png!'
   }
+  default_scope :order => 'title'
 end
