@@ -5,7 +5,7 @@ class Product < ActiveRecord::Base
   validates :title, :uniqueness => true
   validates :image_url, :format => {
       :with => %r{\.(gif|jpg|png)$}i,
-      :message => 'must be jpj, gif, or png!'
+      :message => 'must be jpg, gif, or png!'
   }
   default_scope :order => 'title'
 end
